@@ -18,10 +18,7 @@ class NumbersRecyclerViewAdapter (var  numbersList:List<Int>):
         holder.tvNumbers.text= numbersList.get(position).toString()
     }
 
-    override fun getItemCount(): Int {
-        return numbersList.size
-    }
-
+    override fun getItemCount(): Int = numbersList.size
 }
 
 

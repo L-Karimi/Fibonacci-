@@ -1,9 +1,7 @@
 package dev.lucy.fibonacci
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.widget.LinearLayout
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import dev.lucy.fibonacci.databinding.ActivityMainBinding
 
@@ -17,21 +15,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun displayNumbers() {
-        val n = 10
-        var t1 = 0
-        var t2 = 1
-
-        print("First $n terms: ")
-
-        for (i in 1..n) {
-            print("$t1 + ")
-
-            val sum = t1 + t2
-            t1 = t2
-            t2 = sum
-            var numbersAdapter=NumbersRecyclerViewAdapter(numbersList )
-            binding.rvNumbers.layoutManager= LinearLayoutManager(this)
-            binding.rvNumbers.adapter=numbersAdapter
+        var numberList = mutableListOf(0, 1)
+        var result = 0
+        var i = 1
+        for (k in 1..100) {
+            result = numberList[i] + numberList[i - 1]
+            numberList.add(result)
+            i++
         }
+        var numbersAdapter = NumbersRecyclerViewAdapter(numberList)
+        binding.rvNumbers.layoutManager = LinearLayoutManager(this)
+        binding.rvNumbers.adapter = numbersAdapter
+
+
     }
 }
